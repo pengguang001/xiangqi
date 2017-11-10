@@ -20,12 +20,18 @@
         }
         </style>
         <script>
-        function show() {
-            document.getElementById('id1').style.height= "auto";
-            var images = document.querySelectorAll("#id1 img");
-            for(var i = 0; i < images.length; i++)
-            {
-                images[i].src = images[i].getAttribute('data-src');
+        function show(a) {
+            if (a.text == "显示") {
+                a.text = "隐藏";
+                document.getElementById('id1').style.height= "auto";
+                var images = document.querySelectorAll("#id1 img");
+                for(var i = 0; i < images.length; i++)
+                {
+                    images[i].src = images[i].getAttribute('data-src');
+                }
+            } else {
+                a.text = "显示";
+                document.getElementById('id1').style.height= "0";
             }
         }
         </script>
@@ -33,9 +39,9 @@
 
     <body>
         <h3 class="headline">生成棋谱动图</h3>
-        <a href="#" onclick="show()">显示图片</a>
+        <a href="#" onclick="show(this)">显示</a>
         <div id="id1" class="class1">
-            <img data-src="img/gif.gif">
+            <img data-src="1.gif">
         </div>
     </body>
 </html>
